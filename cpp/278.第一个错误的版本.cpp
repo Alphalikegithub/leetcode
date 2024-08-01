@@ -1,3 +1,4 @@
+#include <iostream>
 /*
  * @lc app=leetcode.cn id=278 lang=cpp
  *
@@ -7,6 +8,14 @@
 // @lc code=start
 // The API isBadVersion is defined for you.
 // bool isBadVersion(int version);
+
+// 假设有一个API：bool isBadVersion(int version);
+// 你可以调用它来判断一个版本是否有错误
+int firstBad; // 全局变量，表示第一个错误的版本
+
+bool isBadVersion(int version) {
+    return version >= firstBad;
+}
 
 class Solution {
 public:
@@ -27,4 +36,10 @@ public:
 
 
 // @lc code=end
-
+int main() {
+    firstBad = 4; // 设定第一个错误的版本
+    Solution solution;
+    int n = 10;
+    std::cout << "第一个错误的版本是: " << solution.firstBadVersion(n) << std::endl;
+    return 0;
+}
